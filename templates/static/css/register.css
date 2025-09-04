@@ -1,0 +1,109 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: url('https://avatars.mds.yandex.net/i?id=aed3d8f4921f1ce765c37fc6c1e0d2eca8ac53b7-5031203-images-thumbs&n=13') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+}
+
+.main_page {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth_block {
+    background-color: rgba(255, 255, 255, 0.93);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    width: 340px;
+    max-width: 90%;
+}
+
+#input_role {
+    width: 100%;
+    padding: 12px 40px 12px 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    margin-bottom: 15px;
+    height: 46px; 
+    background-color: white;
+    color: #333;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23333'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.auth_input_element {
+    width: 100%;
+    padding: 11px 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    height: 42px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.input_description, 
+label[for="input_role"] {
+    margin-bottom: 6px;
+    font-weight: 700;
+    color: #444;
+    font-size: 14px;
+    display: block;
+}
+
+.auth_buttons_container {
+    margin-top: 10px;
+}
+
+.auth_button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    height: 44px;
+    margin-bottom: 12px; 
+}
+
+.auth_button:first-of-type {
+    background-color: #4a90e2;
+    color: white;
+    box-shadow: 0 4px 8px rgba(74, 144, 226, 0.3);
+}
+
+.auth_button:last-of-type {
+    background-color: #f5f5f5;
+    color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 5px; 
+}
+
+.auth_button:hover {
+    transform: translateY(-1px);
+}
+.auth_button:first-of-type:hover {
+    background-color: #3a7bc8;
+}
+.auth_button:last-of-type:hover {
+    background-color: #e0e0e0;
+}

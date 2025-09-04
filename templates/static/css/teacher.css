@@ -1,0 +1,41 @@
+table {
+    width: auto; 
+    border-collapse: collapse;
+    margin: 0 auto; 
+    font-size: 0.9em; 
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 6px 8px; 
+    text-align: center;
+    max-width: 120px; 
+    word-wrap: break-word; 
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: 500; 
+}
+
+.group-name {
+    font-weight: bold;
+    padding: 8px 0; 
+    text-align: left;
+    font-size: 1em; 
+}
+
+td {
+    font-size: 0.80em;
+}
+
+@media (max-width: 768px) {
+    table {
+        font-size: 0.8em;
+    }
+    
+    th, td {
+        padding: 4px 6px;
+        max-width: 80px;
+    }
+}

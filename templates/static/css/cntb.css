@@ -1,0 +1,46 @@
+.lab_step_block {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.lab_step_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+#lab1_C_condition {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.check_block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.check_button {
+    width: 200px;
+    height: 40px;
+    font-size: 17px;
+}
+
+.verdict_block {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.text_block {
+    text-align: center;
+    width: 100%;
+}

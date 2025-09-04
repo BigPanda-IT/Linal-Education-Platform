@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', path='css/register.css')}}">
+    <script src="{{url_for('static', path='js/auth.js')}}"></script>
+    <title>Linear algebra</title>
+</head>
+
+<body>
+    <main class="main_page">
+        <div class="auth_block">
+            <div class="auth_input_form">
+                <label for="input_role">Статус</label>
+                <select id="input_role">
+                    <option value="{{ RolesEnum.STUDENT.id }}">Студент</option>
+                    <option value="{{ RolesEnum.LEADER.id }}">Староста</option>
+                    <option value="{{ RolesEnum.TEACHER.id }}">Преподаватель</option>
+                </select>
+
+                <div class="input_element_with_description">
+                    <p class="input_description">ФИО</p>
+                    <input type="text" class="auth_input_element" id="input_name"/>
+                </div>
+                <div class="input_element_with_description">
+                    <p class="input_description">Логин (4-30 символов)</p>
+                    <input type="text" class="auth_input_element" id="input_login"/>
+                </div>
+                <div class="input_element_with_description">
+                    <p class="input_description">Пароль (8-16 символов)</p>
+                    <input type="password" class="auth_input_element" id="input_password"/>
+                </div>
+                <div class="input_element_with_description">
+                    <p class="input_description">Повторите пароль</p>
+                    <input type="password" class="auth_input_element" id="input_repeated_password"/>
+                </div>
+                <div class="auth_buttons_container">
+                    <button type="button" class="auth_button" onclick="register_user()">Зарегистрироваться</button>
+                    <button type="button" class="auth_button" onclick="to_login()">Авторизоваться</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

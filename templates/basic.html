@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', path='css/bsc.css')}}">
+    <script src="{{url_for('static', path='js/basic.js')}}"></script>
+    {% block head %}{% endblock %}
+    <title>Linear algebra</title>
+</head>
+
+<body>
+    <header class="header_block">
+        <button class="home_button" onclick="to_profile()">Домой</button>
+        <div class="user_info_block">
+            <p class="user_info_element" id="user_name">ФИО: {{ user_data.user.name }}</p>
+            <p class="user_info_element" id="user_login">Логин: {{ user_data.user.username }}</p>
+            <p class="user_info_element" id="user_role">Роль: {{ user_data.role_name }}</p>
+
+            {% block additional_userinfo %}{% endblock %}
+
+            {% block edit_button %}{% endblock %}
+        </div>
+        <button class="logout_button" onclick="logout()">Выйти</button>
+    </header>
+
+    {% block edit_userinfo %}{% endblock %}
+    {% block add_groups %}{% endblock %}
+
+    <main class="main_page">
+        {% block main_content %}{% endblock %}
+    </main>
+
+    <footer class="footer_block">
+        <div class="contacts_block">
+            <h3>Контакты в случае багов:</h3>
+            <p class="contact_data">email: misha230503@mail.ru</p>
+            <p class="contact_data">tg: @m_zhilin</p>
+        </div>
+    </footer>
+
+    {% block end_scripts %}{% endblock %}
+</body>
+
+</html>

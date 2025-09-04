@@ -1,0 +1,570 @@
+body {
+    background: url('https://avatars.mds.yandex.net/i?id=aed3d8f4921f1ce765c37fc6c1e0d2eca8ac53b7-5031203-images-thumbs&n=13') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #2c3e50;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header_block {
+    background: linear-gradient(135deg, rgba(173, 216, 230, 0.9) 0%, rgba(221, 160, 221, 0.9) 100%);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.user_info_block {
+    background: linear-gradient(135deg, rgba(245, 245, 255, 1) 0%, rgba(245, 245, 255, 1) 100%);
+    padding: 15px 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.user_info_element {
+    margin: 8px 0;
+    font-size: 16px;
+    color: #5d5d8d;
+    font-weight: 500;
+}
+
+button {
+    background: linear-gradient(135deg, #a8c0ff 0%, #9370db 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #b8d0ff 0%, #a07be0 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.home_button {
+    background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+}
+
+.logout_button {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+}
+
+.logout_button:hover {
+    background: linear-gradient(135deg, #ffa9ac 0%, #fbdfd6 100%);
+}
+
+#edit_button {
+    background: linear-gradient(135deg, #d4b5ff 0%, #c792ea 100%);
+}
+
+#edit_button:hover {
+    background: linear-gradient(135deg, #e0c5ff 0%, #d3a0f0 100%);
+}
+
+.main_page {
+    flex: 1;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+}
+
+.course_block {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 240, 255, 0.9) 100%);
+    border-radius: 20px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.course_block h1 {
+    color: #422974;
+    margin-top: 0;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #d4b5ff;
+    font-weight: 600;
+    text-align: center;
+}
+
+.course_block table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.course_block thead tr {
+    background: #c8b0f7; 
+}
+
+.course_block thead th {
+    color: #003366; 
+    padding: 15px 20px;
+    font-weight: 600;
+    text-align: center;
+    background-color: #c7aafa; 
+    border-bottom: 3px solid #529df3; 
+    border-right: 3px solid #529df3; 
+}
+
+.course_block tbody td:nth-child(1) {
+    padding: 14px 20px;
+    background: #ccdff7; 
+    color: #5d5d8d; 
+    font-weight: 500;
+    text-align: center; 
+    border-right: 3px solid #529df3; 
+    width: 33%; 
+}
+
+/* Убираем эффект наведения курсора */
+.course_block tbody td:nth-child(1):hover {
+    cursor: pointer; 
+    background-color: #a1b4f6; 
+}
+
+.course_block tbody td:nth-child(1) a {
+    color: #003366; 
+    text-decoration: none; 
+}
+
+.course_block tbody td:nth-child(1) a:hover {
+    text-decoration: none; 
+}
+
+.course_block tbody td:nth-child(2) {
+    background: #ccdff7; 
+    color: #003366; 
+    padding: 14px 20px;
+    font-weight: 500;
+    text-align: center;
+    border-right: 3px solid #529df3; 
+    width: 33%; 
+}
+
+.course_block tbody td:nth-child(3) {
+    background: #ccdff7; 
+    color: #003366; 
+    padding: 14px 20px;
+    font-weight: 500;
+    text-align: center;
+    border-right: 3px solid #529df3; 
+    width: 33%; 
+}
+
+.course_block tbody td:last-child {
+    border-right: none;
+}
+
+.course_block table, 
+.course_block th, 
+.course_block td {
+    border: 3px solid #529df3; 
+}
+
+
+#edit_modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(240, 240, 255, 1) 100%) !important;
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 450px;
+    max-width: 90%;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    backdrop-filter: none;
+    max-height: none; 
+    overflow-y: visible;
+}
+
+/* Заголовок модального окна */
+#edit_modal h2 {
+    margin-top: 0;
+    color: #8357da;
+    font-weight: 600;
+    font-size: 24px;
+    text-align: center;
+}
+
+/* Стили для полей ввода */
+.user_info {
+    display: block;
+    margin-bottom: 20px;
+    color: #5d5d8d;
+}
+
+.user_info input, .user_info select {
+    width: 100%;
+    padding: 12px 15px;
+    margin-top: 8px;
+    border-radius: 10px;
+    border: 1px solid #d4b5ff;
+    background: rgba(255, 255, 255, 1); 
+    color: #5d5d8d;
+    font-size: 16px;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.user_info input:focus, .user_info select:focus {
+    outline: none;
+    border-color: #9370db;
+    box-shadow: 0 0 0 3px rgba(147, 112, 219, 0.2);
+}
+
+#save_button, #close_button {
+    border: none;
+    padding: 12px 24px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    margin-top: 15px;
+    box-sizing: border-box;
+}
+
+#save_button {
+    background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+}
+
+#save_button:hover {
+    background: linear-gradient(135deg, #60a6ff 0%, #3d80e1 100%); 
+}
+
+#save_button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#close_button {
+    background: linear-gradient(135deg, #ff6666 0%, #ff9999 100%); 
+}
+
+#close_button:hover {
+    background: linear-gradient(135deg, #ff4d4d 0%, #ff7373 100%); 
+}
+
+#close_button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.footer_block {
+    background: linear-gradient(135deg, rgba(173, 216, 230, 0.9) 0%, rgba(221, 160, 221, 0.9) 100%);
+    padding: 25px;
+    text-align: center;
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(73, 35, 95, 0.3);
+}
+
+.contacts_block {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contacts_block h3 {
+    color: #39399e;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.contact_data {
+    color: #424280;
+    margin: 8px 0;
+}
+
+/* Модальное окно для добавления групп */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, rgb(245, 245, 238) 0%, rgb(245, 245, 250) 100%);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    width: 450px;
+    max-width: 90%;
+    transition: all 0.3s ease;
+    position: relative;
+    top: 30%;
+    transform: translateY(-20%);
+    max-height: 300px;
+
+}
+
+.modal.active .modal-content {
+    transform: translateY(0);
+}
+
+.modal h2 {
+    margin-top: 0;
+    color: #8357da;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.modal-input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 1px solid #d4b5ff;
+    font-size: 16px;
+    resize: vertical;
+    min-height: 100px;
+    box-sizing: border-box;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.modal-open {
+    overflow: hidden;
+}
+
+.modal-open::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.modal-button {
+    flex: 1;
+    padding: 12px;
+    border-radius: 30px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#add_groups_modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(240, 240, 255, 1) 100%);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 450px;
+    max-width: 90%;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+#add_groups_modal h2 {
+    margin-top: 0;
+    color: #8357da;
+    font-weight: 600;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.modal-button.save {
+    background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+    color: white;
+}
+
+.modal-button.cancel {
+    background: linear-gradient(135deg, #ff6666 0%, #ff9999 100%);
+    color: white;
+}
+
+.modal-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.add_groups_button {
+    display: block;
+    margin: 20px auto;
+    background: linear-gradient(135deg, #a8c0ff 0%, #9370db 100%);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 30px;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.add_groups_button:hover {
+    background: linear-gradient(135deg, #b8d0ff 0%, #a07be0 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+#edit_modal {
+    display: none; 
+}
+
+/* Стили для статусов сдачи работ */
+.deadline-met {
+    color: #8df78d; 
+    font-weight: 600;
+}
+
+.deadline-late {
+    color: #ff8c00; 
+    font-weight: 600;
+}
+
+.deadline-missed {
+    color: #ee8e9d; 
+    font-weight: 600;
+}
+
+.course_block tbody td.deadline-status {
+    padding: 14px 20px;
+    font-weight: 600;
+    text-align: center;
+    border-right: 3px solid #529df3;
+    width: 33%;
+    color: #003366; 
+}
+
+.course_block tbody td.deadline-status.deadline-met {
+    background-color: #8df78d !important; 
+    color: #003366 !important; 
+}
+
+.course_block tbody td.deadline-status.deadline-late {
+    background-color: #faba7d !important; 
+    color: #003366 !important; 
+}
+
+.course_block tbody td.deadline-status.deadline-missed {
+    background-color: #ee8e9d !important; 
+    color: #003366 !important; 
+}
+
+.course_block tbody td:nth-child(1),
+.course_block tbody td:nth-child(2),
+.course_block tbody td:nth-child(3) {
+    width: auto;
+}
+
+.mark-cell {
+    padding: 8px !important;
+    text-align: center !important;
+    vertical-align: middle !important;
+    color: #003366 !important;
+    font-weight: 600 !important;
+    border: 3px solid #529df3 !important;
+}
+
+.mark-cell.deadline-met {
+    background-color: #8df78d !important;
+}
+.mark-cell.deadline-late {
+    background-color: #faba7d !important;
+}
+.mark-cell.deadline-missed {
+    background-color: #ee8e9d !important;
+}
+
+.mark-content {
+    line-height: 1.2;
+    word-break: break-word;
+    white-space: normal;
+}
+
+@media (max-width: 768px) {
+    .header_block {
+        flex-direction: column;
+        padding: 20px;
+    }
+    
+    .user_info_block {
+        margin: 15px 0;
+        width: 100%;
+        text-align: center;
+    }
+    
+    button {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    
+    th, td {
+        padding: 12px 15px;
+    }
+    
+    .course_block {
+        padding: 20px;
+    }
+}
+
+.deadline-status {
+    font-weight: 600;
+}
+.deadline-met {
+    color: #8df78d;
+    background-color: #e6f7e6;
+}
+.deadline-late {
+    color: #faba7d;
+    background-color: #fff2e6;
+}
+.deadline-missed {
+    color: #ee8e9d;
+    background-color: #ffebee;
+}

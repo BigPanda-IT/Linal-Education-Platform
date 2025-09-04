@@ -1,0 +1,205 @@
+
+.course_block table {
+    width: auto;
+    max-width: 100%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    font-size: 0.8em;
+    table-layout: fixed;
+}
+
+/* Уже ячейка "Итог" */
+.course_block td:nth-child(2) {
+    width: 25px !important;  
+    min-width: 25px !important;
+    max-width: 25px !important;
+}
+
+/* Ячейка "Оценка" */
+.course_block td:nth-child(3),
+.course_block th:nth-child(3) {
+    width: 48px !important;
+    min-width: 48px !important;
+    max-width: 48px !important;
+}
+
+.course_block thead tr {
+    background: #003366; 
+}
+
+.course_block thead th {
+    color: #003366; 
+    padding: 8px 10px;
+    font-weight: 500;
+    text-align: center;
+    border: solid #529df3;
+}
+
+.course_block td {
+    padding: 6px 8px;
+    max-width: 70px;
+    word-wrap: break-word;
+    border: solid #529df3;
+    text-align: center;
+    background-color: #ccdff7;
+    color: #003366; 
+}
+
+.course_block td:first-child {
+    width: 200px;
+    max-width: 200px;
+    text-align: left;
+    font-weight: 500;
+    color: #003366 !important;
+}
+
+.course_block .group-name {
+    font-weight: bold;
+    padding: 8px;
+    text-align: center;
+    font-size: 0.9em;
+    background-color: #ccdff7;
+    color: #003366;
+}
+
+.table-container {
+    overflow-x: auto;
+    width: 100%;
+    margin: 0 auto;
+    padding: 5px;
+    background: rgba(244, 224, 247, 0.7);
+    border-radius: 10px;
+}
+
+.course_block tbody td:nth-child(n+3) {
+    background-color: white;
+    text-align: center;
+}
+
+.course_block tbody td:nth-child(n+3),
+.course_block thead th:nth-child(n+3) {
+    width: 40px;
+}
+
+.course_block td:contains("+") {
+    background-color: #a1f0a1;
+}
+
+#analytical-geometry-table {
+    table-layout: fixed;
+    width: auto;
+    font-size: 1em;
+    border-collapse: collapse;
+    max-width: 100%;
+    margin: 20px auto;
+}
+
+#analytical-geometry-table th:first-child,
+#analytical-geometry-table td:first-child {
+    width: 180px !important;
+}
+
+#analytical-geometry-table th:nth-child(2),
+#analytical-geometry-table td:nth-child(2) {
+    width: 100px !important;
+}
+
+#analytical-geometry-table th:nth-child(n+3),
+#analytical-geometry-table td:nth-child(n+3) {
+    width: 70px !important;
+    min-width: 70px !important;
+    max-width: 70px !important;
+}
+
+#analytical-geometry-table thead tr {
+    background: #003366 !important; 
+}
+
+#analytical-geometry-table thead th {
+    color: #003366 !important; 
+    padding: 10px;
+    border: solid #529df3 !important; 
+    font-weight: 500;
+}
+
+#analytical-geometry-table td {
+    padding: 8px;
+    border: solid #529df3 !important; 
+    text-align: center;
+    background-color: #ccdff7; 
+    color: #003366 !important; 
+}
+
+#analytical-geometry-table td:first-child {
+    text-align: left;
+    font-weight: 500;
+    text-align: center;
+    color: #003366 !important;
+    background-color: #ccdff7 !important; 
+}
+
+#analytical-geometry-table tbody td:nth-child(n+3) {
+    background-color: white;
+}
+
+#analytical-geometry-table .group-name {
+    font-weight: bold;
+    padding: 8px;
+    text-align: center;
+    font-size: 0.9em;
+    background-color: #ccdff7 !important;
+    color: #003366;
+    border: solid #529df3 !important;
+}
+
+#analytical-geometry-table td:contains("+") {
+    background-color: #a1f0a1 !important;
+}
+
+/* Унифицированная ширина ячеек работ */
+#analytical-geometry-table th:nth-child(n+3),
+#analytical-geometry-table td:nth-child(n+3) {
+    width: 70px !important;
+    min-width: 70px !important;
+    max-width: 70px !important;
+    word-break: break-word;
+    white-space: normal;
+    overflow-wrap: break-word;
+}
+
+
+.table-container {
+    overflow-x: auto;
+    width: 100%;
+    margin: 0 auto;
+    padding: 5px;
+    background: rgba(244, 224, 247, 0.7) !important;
+    border-radius: 10px;
+}
+
+/* Стили для ячеек с оценками */
+.grade-cell {
+    font-weight: bold;
+    text-align: center;
+    padding: 8px !important;
+    border: 3px solid #529df3 !important;
+    background-color: #ccdff7 !important;
+}
+
+
+/* Адаптивность */
+@media (max-width: 1200px) {
+    .course_block table {
+        font-size: 0.7em;
+    }
+    
+    .course_block th, 
+    .course_block td {
+        padding: 4px 6px;
+    }
+    
+    .course_block td:first-child {
+        width: 150px;
+        max-width: 150px;
+    }
+}

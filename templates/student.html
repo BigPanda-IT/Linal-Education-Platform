@@ -1,0 +1,81 @@
+{% extends "basic.html" %}
+
+{% block edit_button %}
+<button class="user_info_element" id="edit_button" onclick="show_edit_block('edit_modal')">Редактировать</button>
+{% endblock %}
+
+{% block additional_userinfo %}
+<p class="user_info_element" id="student_group">Группа: {{ user_data.student_group.name }}</p>
+{% endblock %}
+
+{% block edit_userinfo %}
+<div id="edit_modal" style="display: none;">
+    <h2>Редактирование данных</h2>
+    <label class="user_info">Имя: <input type="text" id="name"></label><br>
+    <label class="user_info">Группа:
+        <select id="group_name">
+            <option value="None" selected>None</option>
+            {% for group in user_data.all_groups %}
+            <option value="{{group.name}}">{{ group.name }}</option>
+            {% endfor %}
+        </select>
+    </label><br>
+    <button id="save_button" onclick="save_userdata()">Сохранить</button>
+    <button id="close_button" onclick="hide_edit_block('edit_modal')">Закрыть</button>
+</div>
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{url_for('static', path='css/student.css')}}">
+<link rel="stylesheet" href="{{url_for('static', path='css/profile.css')}}">
+{% endblock %}
+
+{% block main_content %}
+<div class="course_block">
+    <h1>Линейная алгебра</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Номер работы</th>
+                <th>Дата сдачи</th>
+                <th>Дедлайн</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for lab_number in range(1, linal_labs_count + 1) %}
+            <tr>
+                <td><a href="/linal/lab{{lab_number}}">Задача №{{lab_number}}</a></td>
+                <td class="deadline-status {% if not user_data.student.linal_marks[lab_number-1].approve_date %}deadline-missed{% elif user_data.student.linal_marks[lab_number-1].approve_date <= user_data.student_group.linal_deadlines[lab_number-1] %}deadline-met{% else %}deadline-late{% endif %}">
+                    {{ user_data.student.linal_marks[lab_number-1].approve_date or "Не сдано" }}
+                </td>
+                <td>{{ user_data.student_group.linal_deadlines[lab_number-1] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="course_block">
+    <h1>Аналитическая геометрия</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Номер работы</th>
+                <th>Дата сдачи</th>
+                <th>Дедлайн</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for lab_number in range(1, angem_labs_count + 1) %}
+            <tr>
+                <td><a href="/angem/lab{{lab_number}}">Задача №{{lab_number}}</a></td>
+                <td class="deadline-status {% if not user_data.student.angem_marks[lab_number-1].approve_date %}deadline-missed{% elif user_data.student.angem_marks[lab_number-1].approve_date <= user_data.student_group.angem_deadlines[lab_number-1] %}deadline-met{% else %}deadline-late{% endif %}">
+                    {{ user_data.student.angem_marks[lab_number-1].approve_date or "Не сдано" }}
+                </td>
+                <td>{{ user_data.student_group.angem_deadlines[lab_number-1] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
