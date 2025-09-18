@@ -3,7 +3,7 @@ import { show_verdict, send_response } from '../common.js';
 
 
 DOMAIN = "";
-const URL = DOMAIN + "/angem/lab8/check";
+const URL = DOMAIN + "/angem/lab1/check";
 
 
 function check_request() {

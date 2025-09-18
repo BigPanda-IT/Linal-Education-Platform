@@ -13,9 +13,8 @@ from config.database_config import DatabaseConfig
 from src.datamodels.user import User, Student, Teacher, StudentGroup, RolesEnum
 from src.datamodels.labs import (
     LinalLab1Request, LinalLab2Request, LinalLab3Request, LinalLab4Request, LinalLab5Request, LinalLab6Request,
-    LinalLab7Request, LinalLab8Request, LinalLab9Request, LinalLab10Request, LinalLab11Request, LinalLab12Request,
-    LinalLab13Request, LinalLab14Request, LinalLab15Request,
-    AngemLab8Request
+    LinalLab7Request, LinalLab8Request, LinalLab9Request, LinalLab10Request, LinalLab11Request,
+    AngemLab1Request
 )
 from src.datamodels.page_payload import BasicData
 from src.datamodels.utils import AdditionalUserInfo, StudentWithResults, StudentMark
@@ -229,42 +228,7 @@ class Database:
             await connection.execute(sql_query)
 
             sql_query = ''' 
-                CREATE TABLE IF NOT EXISTS linal_lab12 (
-                    id SERIAL PRIMARY KEY,
-                    coefficients INTEGER[][] NOT NULL,
-                    results INTEGER[] NOT NULL
-                );
-            '''  # create table of linal_lab12
-            await connection.execute(sql_query)
-
-            sql_query = ''' 
-                CREATE TABLE IF NOT EXISTS linal_lab13 (
-                    id SERIAL PRIMARY KEY,
-                    matrix_a INTEGER[][] NOT NULL,
-                    matrix_b INTEGER[][] NOT NULL,
-                    matrix_c INTEGER[][] NOT NULL
-                );
-            '''  # create table of linal_lab13
-            await connection.execute(sql_query)
-
-            sql_query = ''' 
-                CREATE TABLE IF NOT EXISTS linal_lab14 (
-                    id SERIAL PRIMARY KEY,
-                    coefficients INTEGER[][] NOT NULL
-                );
-            '''  # create table of linal_lab14
-            await connection.execute(sql_query)
-
-            sql_query = ''' 
-                CREATE TABLE IF NOT EXISTS linal_lab15 (
-                    id SERIAL PRIMARY KEY,
-                    coefficients TEXT[][][] NOT NULL
-                );
-            '''  # create table of linal_lab15
-            await connection.execute(sql_query)
-
-            sql_query = ''' 
-                CREATE TABLE IF NOT EXISTS angem_lab8 (
+                CREATE TABLE IF NOT EXISTS angem_lab1 (
                     id SERIAL PRIMARY KEY,
                     a INTEGER[] NOT NULL,
                     b INTEGER[] NOT NULL,
@@ -292,12 +256,8 @@ class Database:
                     linal_lab9_id INTEGER NOT NULL REFERENCES linal_lab9(id),
                     linal_lab10_id INTEGER NOT NULL REFERENCES linal_lab10(id),
                     linal_lab11_id INTEGER NOT NULL REFERENCES linal_lab11(id),
-                    linal_lab12_id INTEGER NOT NULL REFERENCES linal_lab12(id),
-                    linal_lab13_id INTEGER NOT NULL REFERENCES linal_lab13(id),
-                    linal_lab14_id INTEGER NOT NULL REFERENCES linal_lab14(id),
-                    linal_lab15_id INTEGER NOT NULL REFERENCES linal_lab15(id),
                     
-                    angem_lab8_id INTEGER NOT NULL REFERENCES angem_lab8(id)
+                    angem_lab1_id INTEGER NOT NULL REFERENCES angem_lab1(id)
                 );
             '''  # create table of students
             await connection.execute(sql_query)
@@ -406,38 +366,10 @@ class Database:
             await connection.executemany(sql_query, variants)
 
             sql_query = f''' 
-                INSERT INTO linal_lab12 (coefficients, results)
-                VALUES ($1, $2);
-            '''
-            variants = [(variant.coefficients, variant.results) for variant in linal_variants.LINAL_LAB12_VARIANTS]
-            await connection.executemany(sql_query, variants)
-
-            sql_query = f''' 
-                INSERT INTO linal_lab13 (matrix_a, matrix_b, matrix_c)
+                INSERT INTO angem_lab1 (a, b, c)
                 VALUES ($1, $2, $3);
             '''
-            variants = [(variant.matrix_a, variant.matrix_b, variant.matrix_c) for variant in linal_variants.LINAL_LAB13_VARIANTS]
-            await connection.executemany(sql_query, variants)
-
-            sql_query = f''' 
-                INSERT INTO linal_lab14 (coefficients)
-                VALUES ($1);
-            '''
-            variants = [(variant.coefficients, ) for variant in linal_variants.LINAL_LAB14_VARIANTS]
-            await connection.executemany(sql_query, variants)
-
-            sql_query = f''' 
-                INSERT INTO linal_lab15 (coefficients)
-                VALUES ($1);
-            '''
-            variants = [(variant.coefficients, ) for variant in linal_variants.LINAL_LAB15_VARIANTS]
-            await connection.executemany(sql_query, variants)
-
-            sql_query = f''' 
-                INSERT INTO angem_lab8 (a, b, c)
-                VALUES ($1, $2, $3);
-            '''
-            variants = [(variant.a, variant.b, variant.c) for variant in angem_variants.ANGEM_LAB8_VARIANTS]
+            variants = [(variant.a, variant.b, variant.c) for variant in angem_variants.ANGEM_LAB1_VARIANTS]
             await connection.executemany(sql_query, variants)
 
             sql_query = f'''
@@ -469,10 +401,10 @@ class Database:
             angem_deadlines = [(datetime.strptime('2025-03-14', '%Y-%m-%d') + timedelta(days=5*i)).strftime('%Y-%m-%d') for i in range(ANGEM_LABS_COUNT)]
             await connection.execute(sql_query, linal_deadlines, angem_deadlines, linal_deadlines, angem_deadlines, linal_deadlines, angem_deadlines)
 
-            linal_substr_vars = ','.join([f'linal_lab{i}_id' for i in range(1, 16)])
-            linal_substr_vars_n = ','.join(['1' for _ in range(1, 16)])
-            angem_substr_vars = ','.join([f'angem_lab{i}_id' for i in range(8, 9)])
-            angem_substr_vars_n = ','.join(['1' for _ in range(8, 9)])
+            linal_substr_vars = ','.join([f'linal_lab{i}_id' for i in range(1, 12)])
+            linal_substr_vars_n = ','.join(['1' for _ in range(1, 12)])
+            angem_substr_vars = ','.join([f'angem_lab{i}_id' for i in range(1, 2)])
+            angem_substr_vars_n = ','.join(['1' for _ in range(1, 2)])
             sql_query = f'''
                 INSERT INTO students (user_id, group_id, linal_marks, angem_marks, {linal_substr_vars}, {angem_substr_vars})
                 VALUES
@@ -592,11 +524,11 @@ class Database:
                     user_id, linal_marks, angem_marks, group_id,
                     linal_lab1_id, linal_lab2_id, linal_lab3_id, linal_lab4_id, linal_lab5_id,
                     linal_lab6_id, linal_lab7_id, linal_lab8_id, linal_lab9_id, linal_lab10_id,
-                    linal_lab11_id, linal_lab12_id, linal_lab13_id, linal_lab14_id, linal_lab15_id,
-                    angem_lab8_id
+                    linal_lab11_id,
+                    angem_lab1_id
                 )
                 VALUES
-                    ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)
+                    ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
                 RETURNING id;
             """
             linal_marks = [{"result": False, "approve_date": None} for _ in range(LINAL_LABS_COUNT)]
@@ -615,18 +547,13 @@ class Database:
             linal_lab9_id = random.choice(await get_all_ids_into_lab(course_name="linal", lab_number=9))
             linal_lab10_id = random.choice(await get_all_ids_into_lab(course_name="linal", lab_number=10))
             linal_lab11_id = random.choice(await get_all_ids_into_lab(course_name="linal", lab_number=11))
-            linal_lab12_id = random.choice(await get_all_ids_into_lab(course_name="linal", lab_number=12))
-            linal_lab13_id = random.choice(await get_all_ids_into_lab(course_name="linal", lab_number=13))
-            linal_lab14_id = random.choice(await get_all_ids_into_lab(course_name="linal", lab_number=14))
-            linal_lab15_id = random.choice(await get_all_ids_into_lab(course_name="linal", lab_number=15))
 
-            angem_lab8_id = random.choice(await get_all_ids_into_lab(course_name="angem", lab_number=8))
+            angem_lab1_id = random.choice(await get_all_ids_into_lab(course_name="angem", lab_number=1))
 
             student_row = await conn.fetchrow(
                 sql_query, user_id, linal_marks, angem_marks, 1,
                 linal_lab1_id, linal_lab2_id, linal_lab3_id, linal_lab4_id, linal_lab5_id, linal_lab6_id, linal_lab7_id,
-                linal_lab8_id, linal_lab9_id, linal_lab10_id, linal_lab11_id, linal_lab12_id, linal_lab13_id,
-                linal_lab14_id, linal_lab15_id, angem_lab8_id
+                linal_lab8_id, linal_lab9_id, linal_lab10_id, linal_lab11_id, angem_lab1_id
             )
             return student_row.get('id')
 
@@ -842,72 +769,8 @@ class Database:
                 raise Exception  # TODO: change to correct exception and handle it in routes
             return variant
 
-    async def load_linal_lab12_variant(self, student_id: int) -> Optional[LinalLab12Request]:
-        lab_number = 12  # change here
-        async with self._pool.acquire() as conn:
-            sql_query = f'''
-                SELECT linal_lab{lab_number}.*
-                FROM students
-                JOIN linal_lab{lab_number} ON linal_lab{lab_number}.id = students.linal_lab{lab_number}_id
-                WHERE students.id = $1;
-            '''
-            variant_row = await conn.fetchrow(sql_query, student_id)
-            if variant_row is not None:
-                variant = LinalLab12Request(**variant_row)  # change here
-            else:
-                raise Exception  # TODO: change to correct exception and handle it in routes
-            return variant
-
-    async def load_linal_lab13_variant(self, student_id: int) -> Optional[LinalLab13Request]:
-        lab_number = 13  # change here
-        async with self._pool.acquire() as conn:
-            sql_query = f'''
-                SELECT linal_lab{lab_number}.*
-                FROM students
-                JOIN linal_lab{lab_number} ON linal_lab{lab_number}.id = students.linal_lab{lab_number}_id
-                WHERE students.id = $1;
-            '''
-            variant_row = await conn.fetchrow(sql_query, student_id)
-            if variant_row is not None:
-                variant = LinalLab13Request(**variant_row)  # change here
-            else:
-                raise Exception  # TODO: change to correct exception and handle it in routes
-            return variant
-
-    async def load_linal_lab14_variant(self, student_id: int) -> Optional[LinalLab14Request]:
-        lab_number = 14  # change here
-        async with self._pool.acquire() as conn:
-            sql_query = f'''
-                SELECT linal_lab{lab_number}.*
-                FROM students
-                JOIN linal_lab{lab_number} ON linal_lab{lab_number}.id = students.linal_lab{lab_number}_id
-                WHERE students.id = $1;
-            '''
-            variant_row = await conn.fetchrow(sql_query, student_id)
-            if variant_row is not None:
-                variant = LinalLab14Request(**variant_row)  # change here
-            else:
-                raise Exception  # TODO: change to correct exception and handle it in routes
-            return variant
-
-    async def load_linal_lab15_variant(self, student_id: int) -> Optional[LinalLab15Request]:
-        lab_number = 15  # change here
-        async with self._pool.acquire() as conn:
-            sql_query = f'''
-                SELECT linal_lab{lab_number}.*
-                FROM students
-                JOIN linal_lab{lab_number} ON linal_lab{lab_number}.id = students.linal_lab{lab_number}_id
-                WHERE students.id = $1;
-            '''
-            variant_row = await conn.fetchrow(sql_query, student_id)
-            if variant_row is not None:
-                variant = LinalLab15Request(**variant_row)  # change here
-            else:
-                raise Exception  # TODO: change to correct exception and handle it in routes
-            return variant
-
-    async def load_angem_lab8_variant(self, student_id: int) -> Optional[LinalLab15Request]:
-        lab_number = 8  # change here
+    async def load_angem_lab1_variant(self, student_id: int) -> Optional[AngemLab1Request]:
+        lab_number = 1  # change here
         async with self._pool.acquire() as conn:
             sql_query = f'''
                 SELECT angem_lab{lab_number}.*
@@ -917,7 +780,7 @@ class Database:
             '''
             variant_row = await conn.fetchrow(sql_query, student_id)
             if variant_row is not None:
-                variant = AngemLab8Request(**variant_row)  # change here
+                variant = AngemLab1Request(**variant_row)  # change here
             else:
                 raise Exception  # TODO: change to correct exception and handle it in routes
             return variant

@@ -131,47 +131,12 @@ class LinalLab11Response(BaseModel):
     step_3_x_3: float
 
 
-class LinalLab12Request(BaseModel):
-    coefficients: list[list[int]]
-    results: list[int]
-
-
-class LinalLab12Response(BaseModel):
-    pass
-
-
-class LinalLab13Request(BaseModel):
-    matrix_a: list[list[int]]
-    matrix_b: list[list[int]]
-    matrix_c: list[list[int]]
-
-
-class LinalLab13Response(BaseModel):
-    pass
-
-
-class LinalLab14Request(BaseModel):
-    coefficients: list[list[float]]
-
-
-class LinalLab14Response(BaseModel):
-    pass
-
-
-class LinalLab15Request(BaseModel):
-    coefficients: list[list[list[str]]]
-
-
-class LinalLab15Response(BaseModel):
-    pass
-
-
-class AngemLab8Request(BaseModel):
+class AngemLab1Request(BaseModel):
     a: list[int]
     b: list[int]
     c: list[int]
 
 
-class AngemLab8Response(BaseModel):
+class AngemLab1Response(BaseModel):
     step_1: None
     step_2: None
