@@ -1,9 +1,9 @@
 from fastapi import APIRouter
 
 from app.routes.angem_routes import (
-    lab8
+    lab1
 )
 
 
 router = APIRouter(prefix='/angem', tags=["angem"])
-router.include_router(lab8.router)
+router.include_router(lab1.router)

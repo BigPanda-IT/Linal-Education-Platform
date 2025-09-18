@@ -26,7 +26,7 @@ def init_app_config(env_mode: str, app_config: Config, db_config: DatabaseConfig
         app_config.max_requests = 100
         app_config.workers = 1
         app_config.log_path = os.path.expanduser("~/linal_logs/")
-        app_config.template_path = os.path.expanduser("~/github_projects/LinalEducation/templates")
+        app_config.template_path = os.path.expanduser("~/github_projects/Lena/Linal-Education-Platform/templates")
         app_config.port = 80
     elif env_mode == DOCKER_ENV:
         db_config.host = "db"
