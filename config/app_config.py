@@ -17,7 +17,7 @@ def init_app_config(env_mode: str, app_config: Config, db_config: DatabaseConfig
     app_config.port = 8000
     app_config.workers = 1
     app_config.log_path = "/linal_logs"
-    app_config.template_path = "/LinalEducation/templates"
+    app_config.template_path = "/Linal-Education-Platform/templates"
 
     if env_mode == REMOTE_ENV:
         app_config.max_requests = 500
